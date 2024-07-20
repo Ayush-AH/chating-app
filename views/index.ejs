@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .messageContainer::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w-full h-screen bg-zinc-900 flex items-center justify-center">
+        <div class="namepage  fixed w-full h-screen bg-zinc-900 flex items-center justify-center">
+            <div class="w-[90%] sm:[30%] flex justify-between items-center p-2  bg-zinc-200/10 rounded-sm">
+                <textarea class="nameinput text-white w-full  bg-transparent p-2 resize-none outline-none overflow-y-hidden" name="" placeholder="Enter your name" rows="1"></textarea>
+                <div class="setname cursor-pointer bg-gradient-to-r from-violet-500 to-fuchsia-500 p-2 px-3 rounded-sm text-white">
+                    <div>
+                        <h4 class="whitespace-nowrap">Set your name</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  class="app w-full h-screen sm:w-[40%] sm:h-[80%]  lg:w-[45%] lg:h-[80%] flex flex-col justify-between bg-zinc-700/10 rounded-md p-2">
+            <div class="profile w-full h-[10%] bg-zinc-200/10 rounded-sm flex items-center justify-between px-2">
+               <div class="flex gap-2 items-end">
+                <h4 class="font-semibold text-white leading-none text-xl">Chatting</h4>
+                <h4 class="font-semibold text-xs font-light text-green-500"><span class="live">23</span><span class="text-md text-green-500 ml-1"><i class="ri-circle-fill"></i></span></h4>
+               </div>
+               <h5 class="usertyping text-white/50 font-ittalic"></h5>
+               <div class="flex gap-2 items-end">
+                <h4 class="username font-semibold text-white text-md"></h4>
+                <a href="/" class="bg-red-900 text-xs text-white p-2 py-1 rounded-md capitalize">reset name</a>
+               </div>
+            </div>
+            <div class="messageContainer w-full h-[78%]  p-2 overflow-y-auto">
+            </div>
+            <div class="inputContainer flex justify-between items-center p-2 w-full h-[10%] bg-zinc-200/10 rounded-sm">
+                <textarea class="messageinput text-white w-[80%] bg-transparent p-2 resize-none outline-none overflow-y-hidden" name="" placeholder="Enter your message..." rows="1"></textarea>
+                <div class="sendbtn cursor-pointer bg-gradient-to-r from-violet-500 to-fuchsia-500 p-2 px-3 rounded-sm">
+                    <i class="ri-send-plane-2-fill text-white"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+        integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+        crossorigin="anonymous"></script>
+    <script src="/javascripts/script.js"></script>
+</body>
+
+</html>
