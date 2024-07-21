@@ -12,7 +12,6 @@ app.use(express.static(path.join(__dirname, "public")))
 
 let username = []
 let userid = []
-var count = 0
 
 io.on("connection", function (socket) {
     socket.on("username", function (name) {
@@ -20,18 +19,19 @@ io.on("connection", function (socket) {
         userid.push(socket.id)
         socket.emit("user-set",name)
         io.emit("user-connect", username.length)
-        console.log(username.length);
     })
     socket.on("disconnect", function () {
         if(userid.indexOf(socket.id) !== -1){
-            userid.splice(userid.indexOf(socket.id),1)
             username.splice(userid.indexOf(socket.id),1)
+            userid.splice(userid.indexOf(socket.id),1)
+
             io.emit("user-disconnect",  username.length)
         }
     })
     socket.on("send-message", function (data) {
         if (userid.indexOf(socket.id) !== -1) {
             let name = username[userid.indexOf(socket.id)]
+            console.log(name,data);
             io.emit("reseve-message", { name,id:socket.id, ...data })
         }
 
